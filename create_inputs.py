@@ -32,12 +32,23 @@ def main():
     createInputdata(args.in_images, args.in_labels,args.output, args.mult, args.level, args.dataType)
 
 def createInputdata(imagesFolderPath, imagesTargetsPath, output, mult, level, data_type):
+
     #### for all Slides #############
     slides = []
     for folder in listdir(imagesFolderPath):
         slides.extend([ join(join(imagesFolderPath, folder), f) for f in listdir(join(imagesFolderPath, folder)) if isfile(join(join(imagesFolderPath, folder), f))])
     labels = pd.read_csv(imagesTargetsPath)
     targets = list(labels["target"])
+    ######## Create outPut folder ######
+    path = output
+
+    try:
+        os.mkdir(path)
+    except OSError:
+        print ("Creation of the directory %s failed" % path)
+    else:
+        print ("Successfully created the directory %s " % path)
+
 
     if (data_type==0):
         #### Create TrainingSet, ValidationSet, TestSet #############

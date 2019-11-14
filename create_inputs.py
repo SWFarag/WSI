@@ -29,7 +29,7 @@ from IPython.display import HTML, display
 
 
 def main():
-    createInputdata(args.in_images, args.in_labels,args.output, args.mult, args.level, args.data_type)
+    createInputdata(args.in_images, args.in_labels,args.output, args.mult, args.level, args.dataType)
 
 def createInputdata(imagesFolderPath, imagesTargetsPath, output, mult, level, data_type):
     #### for all Slides #############
@@ -84,7 +84,7 @@ def createInputdata(imagesFolderPath, imagesTargetsPath, output, mult, level, da
             grid.append(wsi.level_dimensions)
             wsi.close
         print("Testset_grid: ", len(grid))
-        test_lib = {"slides":slides, "grid":grid, "targets":, targets, "mult":mult, "level":level}
+        test_lib = {"slides":slides, "grid":grid, "targets": targets, "mult":mult, "level":level}
         torch.save(test_lib, output + "/" + "MIL_testset")
 
 parser = argparse.ArgumentParser(description='MIL-nature-medicine-2019 RNN aggregator training script')

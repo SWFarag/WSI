@@ -117,7 +117,6 @@ def inference(run, loader, model):
     return probs.cpu().numpy()
 
 def train(run, loader, model, criterion, optimizer):
-    print("ich bin da")
     model.train()
     running_loss = 0.
     for i, (input, target) in enumerate(loader):

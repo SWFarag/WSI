@@ -37,6 +37,7 @@ def createInputdata(imagesFolderPath, imagesTargetsPath, output, mult, level, da
     slides = []
     for folder in listdir(imagesFolderPath):
         slides.extend([ join(join(imagesFolderPath, folder), f) for f in listdir(join(imagesFolderPath, folder)) if isfile(join(join(imagesFolderPath, folder), f))])
+    print(slides)
     labels = pd.read_csv(imagesTargetsPath)
     targets = list(labels["target"])
     ######## Create outPut folder ######
